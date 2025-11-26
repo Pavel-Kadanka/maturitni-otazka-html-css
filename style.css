@@ -1,0 +1,40 @@
+/* Barvy z PDF */
+:root {
+    --primary-blue: #041938;
+    --accent-orange: #e8491d;
+}
+
+body {
+    background-color: #f8f9fa;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Nadpisy sekcí s oranžovým proužkem */
+.section-title {
+    color: var(--primary-blue);
+    border-left: 5px solid var(--accent-orange);
+    padding-left: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+/* Navbar */
+.bg-custom { background-color: var(--primary-blue) !important; }
+.text-custom { color: var(--primary-blue) !important; }
+
+/* Oddělovač */
+.border-bottom-orange { border-bottom: 5px solid var(--accent-orange); }
+
+/* Kódové bloky */
+pre {
+    font-family: 'Courier New', Courier, monospace;
+    border: 1px solid #444;
+}
+
+/* Karty Frameworků - Hover efekt */
+.card {
+    transition: transform 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-5px);
+}
