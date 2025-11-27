@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="cs">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Maturitní otázka: Webové stránky</title>
-    
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.js.iife.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/driver.js@latest/dist/driver.css" />
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body data-bs-spy="scroll" data-bs-target="#mainNav" data-bs-offset="100">
 
     <nav id="mainNav" class="navbar navbar-expand-lg navbar-dark bg-custom fixed-top shadow">
@@ -35,7 +39,7 @@
     </header>
 
     <main class="container my-5">
-        
+
         <section id="html" class="mb-5 pt-5">
             <h2 class="section-title">1. Teoretický základ</h2>
             <div class="row g-4">
@@ -58,9 +62,12 @@
                             <h4 class="text-danger"><i class="fab fa-css3-alt"></i> CSS (Vzhled)</h4>
                             <p>CSS (Cascading Style Sheets) řeší <strong>design a responzivitu</strong>.</p>
                             <ul>
-                                <li><strong>Selektor:</strong> Určuje, co stylujeme (např. <code>h1</code>, <code>.trida</code>).</li>
-                                <li><strong>Box Model:</strong> Každý prvek má <code>margin</code>, <code>border</code>, <code>padding</code>.</li>
-                                <li><strong>Responzivita:</strong> Pomocí <code>@media</code> se web mění podle šířky displeje.</li>
+                                <li><strong>Selektor:</strong> Určuje, co stylujeme (např. <code>h1</code>,
+                                    <code>.trida</code>).</li>
+                                <li><strong>Box Model:</strong> Každý prvek má <code>margin</code>, <code>border</code>,
+                                    <code>padding</code>.</li>
+                                <li><strong>Responzivita:</strong> Pomocí <code>@media</code> se web mění podle šířky
+                                    displeje.</li>
                             </ul>
                         </div>
                     </div>
@@ -72,42 +79,49 @@
 
         <section id="praxe" class="mb-5 pt-5">
             <h2 class="section-title text-danger">2. Komplexní ukázka: Studentský Portál</h2>
-            <p class="lead">Zde neukazujeme jen tabulku, ale celou strukturu stránky (Layout). Používáme Flexbox pro rozložení profilu a rozvrhu vedle sebe.</p>
+            <p class="lead">Zde neukazujeme jen tabulku, ale celou strukturu stránky (Layout). Používáme Flexbox pro
+                rozložení profilu a rozvrhu vedle sebe.</p>
+            
+            <button onclick="startDriver()">Driver</button>
 
             <ul class="nav nav-tabs" id="myTab" role="tablist">
-                <li class="nav-item"><button class="nav-link active fw-bold" id="vzhled-tab" data-bs-toggle="tab" data-bs-target="#vzhled" type="button">👁️ Výsledek</button></li>
-                <li class="nav-item"><button class="nav-link fw-bold" id="html-code-tab" data-bs-toggle="tab" data-bs-target="#html-code" type="button">💻 HTML Kód</button></li>
-                <li class="nav-item"><button class="nav-link fw-bold" id="css-code-tab" data-bs-toggle="tab" data-bs-target="#css-code" type="button">🎨 CSS Kód</button></li>
+                <li class="nav-item"><button class="nav-link active fw-bold" id="vzhled-tab" data-bs-toggle="tab"
+                        data-bs-target="#vzhled" type="button">👁️ Výsledek</button></li>
+                <li class="nav-item"><button class="nav-link fw-bold" id="html-code-tab" data-bs-toggle="tab"
+                        data-bs-target="#html-code" type="button">💻 HTML Kód</button></li>
+                <li class="nav-item"><button class="nav-link fw-bold" id="css-code-tab" data-bs-toggle="tab"
+                        data-bs-target="#css-code" type="button">🎨 CSS Kód</button></li>
             </ul>
 
             <div class="tab-content border border-top-0 p-4 bg-white shadow-sm rounded-bottom">
-                
+
                 <div class="tab-pane fade show active" id="vzhled">
                     <div class="border rounded shadow-sm overflow-hidden">
                         <header class="bg-dark text-white p-3 d-flex justify-content-between align-items-center">
-                            <h5 class="m-0"><i class="fas fa-university"></i> Školní Systém</h5>
-                            <button class="btn btn-sm btn-outline-light">Odhlásit</button>
+                            <h5 class="m-0"><i id="headline" class="fas fa-university"></i> Školní Systém</h5>
+                            <button id="headline-button" class="btn btn-sm btn-outline-light">Odhlásit</button>
                         </header>
-                        
+
                         <div class="d-md-flex">
                             <aside class="bg-light p-4 text-center border-end" style="min-width: 200px;">
-                                <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white" style="width: 80px; height: 80px; font-size: 2rem;">
-                                    <i class="fas fa-user"></i>
+                                <div class="bg-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center text-white"
+                                    style="width: 80px; height: 80px; font-size: 2rem;">
+                                    <i id="sidebar-icon" class="fas fa-user"></i>
                                 </div>
-                                <h6 class="fw-bold">Jan Novák</h6>
-                                <p class="text-muted small">Maturant 2025</p>
+                                <h6 id="sidebar-name" class="fw-bold">Jan Novák</h6>
+                                <p id="sidebar-subtitle" class="text-muted small">Maturant 2025</p>
                                 <hr>
-                                <div class="d-grid gap-2">
+                                <div id="sidebar-actions" class="d-grid gap-2">
                                     <button class="btn btn-primary btn-sm">Známky</button>
                                     <button class="btn btn-outline-dark btn-sm">Profil</button>
                                 </div>
                             </aside>
 
                             <main class="p-4 flex-grow-1">
-                                <h4 class="mb-3 border-bottom pb-2">Můj Rozvrh Zkoušek</h4>
+                                <h4 id="content-title" class="mb-3 border-bottom pb-2">Můj Rozvrh Zkoušek</h4>
                                 <div class="table-responsive">
-                                    <table class="table table-hover align-middle">
-                                        <thead class="table-primary">
+                                    <table id="content-table" class="table table-hover align-middle">
+                                        <thead id="content-table-head" class="table-primary">
                                             <tr>
                                                 <th>Předmět</th>
                                                 <th>Datum</th>
@@ -115,7 +129,7 @@
                                                 <th>Stav</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody id="content-table-body">
                                             <tr>
                                                 <td>Český jazyk</td>
                                                 <td>2. Května</td>
@@ -139,15 +153,16 @@
                                 </div>
                             </main>
                         </div>
-                        <footer class="bg-light p-2 text-center text-muted border-top small">
+                        <footer id="footer" class="bg-light p-2 text-center text-muted border-top small">
                             &copy; 2025 Školní Portál v1.0
                         </footer>
                     </div>
                 </div>
 
                 <div class="tab-pane fade" id="html-code">
-                    <p>Všimni si rozdělení stránky na <code>header</code>, <code>aside</code> (panel) a <code>main</code> (obsah). Sémantika je důležitá!</p>
-<pre class="bg-dark text-light p-3 rounded"><code>&lt;!-- 1. Hlavička --&gt;
+                    <p>Všimni si rozdělení stránky na <code>header</code>, <code>aside</code> (panel) a
+                        <code>main</code> (obsah). Sémantika je důležitá!</p>
+                    <pre class="bg-dark text-light p-3 rounded"><code>&lt;!-- 1. Hlavička --&gt;
 &lt;header class="hlavicka"&gt;
   &lt;h1&gt;Školní Systém&lt;/h1&gt;
   &lt;button&gt;Odhlásit&lt;/button&gt;
@@ -186,7 +201,7 @@
 
                 <div class="tab-pane fade" id="css-code">
                     <p>Zde je klíčový <strong>Flexbox</strong>, který dá boční panel a tabulku vedle sebe.</p>
-<pre class="bg-dark text-light p-3 rounded"><code><span class="text-info">/* Rozvržení vedle sebe */</span>
+                    <pre class="bg-dark text-light p-3 rounded"><code><span class="text-info">/* Rozvržení vedle sebe */</span>
 .layout-container {
     display: flex; <span class="text-secondary">/* Aktivuje flexbox */</span>
     min-height: 400px;
@@ -223,7 +238,7 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
 
         <section id="frameworky" class="mb-5 pt-5">
             <h2 class="section-title text-success">3. Moderní Frameworky</h2>
-            
+
             <div class="card mb-4 border-warning">
                 <div class="card-header bg-warning text-dark fw-bold">
                     <i class="fas fa-balance-scale"></i> Důležité: Knihovna vs. Framework
@@ -233,13 +248,15 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
                         <div class="col-md-6 border-end">
                             <h5 class="text-primary">Knihovna (Library)</h5>
                             <p><em>"Ty voláš kód."</em></p>
-                            <p class="small">Je to jako kufřík s nářadím. Ty si vybereš kladivo, kdy ho zrovna potřebuješ. Ty ovládáš strukturu.</p>
+                            <p class="small">Je to jako kufřík s nářadím. Ty si vybereš kladivo, kdy ho zrovna
+                                potřebuješ. Ty ovládáš strukturu.</p>
                             <span class="badge bg-primary">Příklad: React</span>
                         </div>
                         <div class="col-md-6">
                             <h5 class="text-danger">Framework</h5>
                             <p><em>"Kód volá tebe." (Inversion of Control)</em></p>
-                            <p class="small">Je to jako továrna. Máš jasně dané místo, kam musíš postavit cihlu. Framework ti diktuje pravidla.</p>
+                            <p class="small">Je to jako továrna. Máš jasně dané místo, kam musíš postavit cihlu.
+                                Framework ti diktuje pravidla.</p>
                             <span class="badge bg-danger">Příklad: Angular</span>
                         </div>
                     </div>
@@ -247,20 +264,22 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
             </div>
 
             <div class="alert alert-info">
-                <strong>Proč je používáme?</strong> Klasický JS manipuluje s DOMem pomalu. Frameworky používají <strong>komponenty</strong> a jsou rychlejší a přehlednější pro velké týmy.
+                <strong>Proč je používáme?</strong> Klasický JS manipuluje s DOMem pomalu. Frameworky používají
+                <strong>komponenty</strong> a jsou rychlejší a přehlednější pro velké týmy.
             </div>
 
             <div class="row g-4 mt-3">
-                
+
                 <div class="col-lg-4">
                     <div class="card h-100 border-primary shadow-sm">
                         <div class="card-header bg-primary text-white fw-bold">1. REACT (Library)</div>
                         <div class="card-body">
-                            <p>Od <strong>Facebooku</strong>. Využívá <strong>Virtuální DOM</strong> a syntaxi <strong>JSX</strong> (HTML uvnitř JS).</p>
+                            <p>Od <strong>Facebooku</strong>. Využívá <strong>Virtuální DOM</strong> a syntaxi
+                                <strong>JSX</strong> (HTML uvnitř JS).</p>
                             <p class="small text-muted">Klíčová slova: <em>Hooks, State, Props.</em></p>
                             <hr>
                             <h6>Ukázka kódu:</h6>
-<pre class="bg-dark text-light p-2 rounded small"><code>function Ahoj() {
+                            <pre class="bg-dark text-light p-2 rounded small"><code>function Ahoj() {
   const [cislo, setCislo] = useState(0);
   return (
     &lt;button onClick={() => setCislo(cislo+1)}&gt;
@@ -276,11 +295,12 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
                     <div class="card h-100 border-success shadow-sm">
                         <div class="card-header bg-success text-white fw-bold">2. VUE.JS (Framework)</div>
                         <div class="card-body">
-                            <p>Komunitní projekt. Je <strong>progresivní</strong> (snadno se přidá do projektu). Odděluje HTML (template) a logiku (script).</p>
+                            <p>Komunitní projekt. Je <strong>progresivní</strong> (snadno se přidá do projektu).
+                                Odděluje HTML (template) a logiku (script).</p>
                             <p class="small text-muted">Klíčová slova: <em>v-if, v-for, Two-way binding.</em></p>
                             <hr>
                             <h6>Ukázka kódu:</h6>
-<pre class="bg-dark text-light p-2 rounded small"><code>&lt;template&gt;
+                            <pre class="bg-dark text-light p-2 rounded small"><code>&lt;template&gt;
   &lt;button @click="cislo++"&gt;
      Kliknuto {{ cislo }}x
   &lt;/button&gt;
@@ -297,11 +317,12 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
                     <div class="card h-100 border-danger shadow-sm">
                         <div class="card-header bg-danger text-white fw-bold">3. ANGULAR (Platform)</div>
                         <div class="card-body">
-                            <p>Od <strong>Google</strong>. Robustní řešení vše-v-jednom. Používá povinně <strong>TypeScript</strong>. Vhodné pro korporátní aplikace.</p>
+                            <p>Od <strong>Google</strong>. Robustní řešení vše-v-jednom. Používá povinně
+                                <strong>TypeScript</strong>. Vhodné pro korporátní aplikace.</p>
                             <p class="small text-muted">Klíčová slova: <em>Modules, Dependency Injection.</em></p>
                             <hr>
                             <h6>Ukázka kódu:</h6>
-<pre class="bg-dark text-light p-2 rounded small"><code>@Component({
+                            <pre class="bg-dark text-light p-2 rounded small"><code>@Component({
   selector: 'app-tlacitko',
   template: `&lt;button (click)="klik()"&gt;
      Kliknuto {{cislo}}x
@@ -327,5 +348,7 @@ export class Tlacitko {
     </footer>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
 </body>
+
 </html>
