@@ -63,9 +63,11 @@
                             <p>CSS (Cascading Style Sheets) řeší <strong>design a responzivitu</strong>.</p>
                             <ul>
                                 <li><strong>Selektor:</strong> Určuje, co stylujeme (např. <code>h1</code>,
-                                    <code>.trida</code>).</li>
+                                    <code>.trida</code>).
+                                </li>
                                 <li><strong>Box Model:</strong> Každý prvek má <code>margin</code>, <code>border</code>,
-                                    <code>padding</code>.</li>
+                                    <code>padding</code>.
+                                </li>
                                 <li><strong>Responzivita:</strong> Pomocí <code>@media</code> se web mění podle šířky
                                     displeje.</li>
                             </ul>
@@ -81,9 +83,10 @@
             <h2 class="section-title text-danger">2. Komplexní ukázka: Studentský Portál</h2>
             <p class="lead">Zde neukazujeme jen tabulku, ale celou strukturu stránky (Layout). Používáme Flexbox pro
                 rozložení profilu a rozvrhu vedle sebe.</p>
-            
-            <button onclick="startDriver()">Driver</button>
 
+            <button onclick="startDriver()" class="btn-guide">
+                <i class="fas fa-play-circle"></i> Spusťte si průvodce
+            </button>
             <ul class="nav nav-tabs" id="myTab" role="tablist">
                 <li class="nav-item"><button class="nav-link active fw-bold" id="vzhled-tab" data-bs-toggle="tab"
                         data-bs-target="#vzhled" type="button">👁️ Výsledek</button></li>
@@ -130,8 +133,8 @@
                                             </tr>
                                         </thead>
                                         <tbody id="content-table-body">
-                                            <tr>
-                                                <td>Český jazyk</td>
+                                            <tr id="priklad-tr">
+                                                <td id="priklad-td">Český jazyk</td>
                                                 <td>2. Května</td>
                                                 <td>Učebna 12</td>
                                                 <td><span class="badge bg-success">Hotovo</span></td>
@@ -161,7 +164,8 @@
 
                 <div class="tab-pane fade" id="html-code">
                     <p>Všimni si rozdělení stránky na <code>header</code>, <code>aside</code> (panel) a
-                        <code>main</code> (obsah). Sémantika je důležitá!</p>
+                        <code>main</code> (obsah). Sémantika je důležitá!
+                    </p>
                     <pre class="bg-dark text-light p-3 rounded"><code>&lt;!-- 1. Hlavička --&gt;
 &lt;header class="hlavicka"&gt;
   &lt;h1&gt;Školní Systém&lt;/h1&gt;
@@ -275,7 +279,8 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
                         <div class="card-header bg-primary text-white fw-bold">1. REACT (Library)</div>
                         <div class="card-body">
                             <p>Od <strong>Facebooku</strong>. Využívá <strong>Virtuální DOM</strong> a syntaxi
-                                <strong>JSX</strong> (HTML uvnitř JS).</p>
+                                <strong>JSX</strong> (HTML uvnitř JS).
+                            </p>
                             <p class="small text-muted">Klíčová slova: <em>Hooks, State, Props.</em></p>
                             <hr>
                             <h6>Ukázka kódu:</h6>
@@ -318,7 +323,8 @@ td { border-bottom: 1px solid #eee; padding: 10px; }</code></pre>
                         <div class="card-header bg-danger text-white fw-bold">3. ANGULAR (Platform)</div>
                         <div class="card-body">
                             <p>Od <strong>Google</strong>. Robustní řešení vše-v-jednom. Používá povinně
-                                <strong>TypeScript</strong>. Vhodné pro korporátní aplikace.</p>
+                                <strong>TypeScript</strong>. Vhodné pro korporátní aplikace.
+                            </p>
                             <p class="small text-muted">Klíčová slova: <em>Modules, Dependency Injection.</em></p>
                             <hr>
                             <h6>Ukázka kódu:</h6>

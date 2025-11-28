@@ -38,3 +38,33 @@ pre {
 .card:hover {
     transform: translateY(-5px);
 }
+
+/* --- Tlačítko pro spuštění průvodce --- */
+.btn-guide {
+    background-color: var(--accent-orange);
+    color: white;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    border-radius: 50px; /* Zaoblený tvar (pill shape) */
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(232, 73, 29, 0.3); /* Jemný oranžový stín */
+    transition: all 0.3s ease;
+    margin-bottom: 25px; /* Odstup od tabů */
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+/* Efekt při najetí myší */
+.btn-guide:hover {
+    background-color: var(--primary-blue);
+    transform: translateY(-3px); /* Tlačítko se "zvedne" */
+    box-shadow: 0 8px 25px rgba(4, 25, 56, 0.3); /* Stín se změní na modrý */
+}
+
+/* Efekt při kliknutí */
+.btn-guide:active {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 10px rgba(4, 25, 56, 0.3);
+}
